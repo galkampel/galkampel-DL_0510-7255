@@ -1,0 +1,84 @@
+{
+  "dataset": "PubMed",
+  "split": "random",
+  "seed": 28,
+  "save_model": false,
+  "cuda": 3,
+  "epochs": 400,
+  "eval_every": 1,
+  "print_Cs": true,
+  "load_pretrained_model": false,
+  "lr": 0.005,
+  "weight_decay": 5e-4,
+  "decay_every": 400,
+  "decay_factor": 0.96,
+
+  "p_input": 0.6,
+  "use_hypernetworks": true,
+  "p_hyper": 0.05,
+  "f_n_hidden": 1,
+  "f_hidden_size": 64,
+  "c_dict": {
+    "out": {
+      "requires_grad": false,
+      "init_val": 0.5,
+      "update_every": 1
+    },
+    "hyper": {
+      "requires_grad": false,
+      "init_val": 0.5,
+      "update_every": 1
+    }
+  },
+  "models_dict": {
+
+    "model1": {
+      "name": "gat",
+      "params1": {
+        "out_channels": 8,
+        "heads": 8,
+        "p_att": 0.6,
+        "bias": true
+      },
+      "hyperparams1": {
+        "lr": 0.005,
+        "weight_decay": 5e-4
+      },
+      "params2": {
+        "heads": 8,
+        "p_att": 0.6,
+        "bias": true
+      },
+      "hyperparams2": {
+        "lr": 0.005,
+        "weight_decay": 5e-4
+      }
+    },
+    "model2": {
+      "name": "gat",
+      "params1": {
+        "out_channels": 8,
+        "heads": 8,
+        "p_att": 0.6,
+        "bias": true
+      },
+      "hyperparams1": {
+        "lr": 0.005,
+        "weight_decay": 5e-4
+      },
+      "params2": {
+        "heads": 8,
+        "p_att": 0.6,
+        "bias": true
+      },
+      "hyperparams2": {
+        "lr": 0.005,
+        "weight_decay": 5e-4
+      }
+    }
+  },
+  "hypernetworks_dict": {
+    "lr": 5e-4,
+    "weight_decay": 5e-4
+  }
+}
